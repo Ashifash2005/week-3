@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Product Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="#">E-Shop</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Section -->
+    <div class="product-container">
+        <div class="product-image">
+            <img src="kevin-bhagat-Co-usQ-kpO0-unsplash.jpg" alt="Product Image" class="main-image">
+            <div class="image-thumbnails">
+                <img src="kevin-bhagat-Co-usQ-kpO0-unsplash.jpg" alt="Thumbnail 1" class="thumbnail">
+                <img src="kevin-bhagat-Co-usQ-kpO0-unsplash.jpg" alt="Thumbnail 2" class="thumbnail">
+                <img src="kevin-bhagat-Co-usQ-kpO0-unsplash.jpg" alt="Thumbnail 3" class="thumbnail">
+            </div>
+        </div>
+        <div class="product-details">
+            <h1>Product Name</h1>
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span>(4.5/5)</span>
+            </div>
+            <p class="product-description">
+                This is a detailed description of the product. It includes information about the features, materials, and benefits of the product. Perfect for everyday use and designed to last.
+            </p>
+            <p class="product-price">$99.99 <span class="discount">$120.00</span></p>
+            <div class="quantity-selector">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="1" value="1">
+            </div>
+            <button class="add-to-cart">
+                <i class="fas fa-cart-plus"></i> Add to Cart
+            </button>
+            <button class="buy-now">Buy Now</button>
+        </div>
+    </div>
+
+    <!-- Customer Reviews Section -->
+    <div class="reviews-section">
+        <h2>Customer Reviews</h2>
+        <div class="review">
+            <div class="review-header">
+                <img src="https://via.placeholder.com/50" alt="User Avatar" class="user-avatar">
+                <div class="review-info">
+                    <p><strong>Alex</strong></p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            <p>Great product! Highly recommend it. The quality is excellent, and it arrived on time.</p>
+        </div>
+        <div class="review">
+            <div class="review-header">
+                <img src="https://via.placeholder.com/50" alt="User Avatar" class="user-avatar">
+                <div class="review-info">
+                    <p><strong>Jane Smith</strong></p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+            <p>Excellent quality and fast shipping. I'm very satisfied with my purchase.</p>
+        </div>
+    </div>
+
+    <!-- Related Products Section -->
+    <div class="related-products">
+        <h2>Related Products</h2>
+        <div class="related-products-grid">
+            <div class="related-product">
+                <img src="https://via.placeholder.com/200" alt="Related Product 1">
+                <p>Related Product 1</p>
+                <p class="Sample product price">$99.99</p>
+                <button class="quick-view">Quick View</button>
+            </div>
+            <div class="sample product">
+                <img src="https://via.placeholder.com/200" alt="Related Product 2">
+                <p>Related Product 2</p>
+                <p class="related-product-price">$59.99</p>
+                <button class="quick-view">Quick View</button>
+            </div>
+            <div class="related-product">
+                <img src="https://via.placeholder.com/200" alt="Related Product 3">
+                <p>Related Product 3</p>
+                <p class="related-product-price">$69.99</p>
+                <button class="quick-view">Quick View</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 ashif . All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Add hover effects and animations
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        const mainImage = document.querySelector('.main-image');
+
+        thumbnails.forEach(thumbnail => {
+            thumbnail.addEventListener('mouseover', () => {
+                mainImage.src = thumbnail.src;
+                mainImage.classList.add('zoom');
+            });
+
+            thumbnail.addEventListener('mouseout', () => {
+                mainImage.classList.remove('zoom');
+            });
+        });
+
+        // Add to cart animation
+        const addToCartButton = document.querySelector('.add-to-cart');
+        const cartCount = document.querySelector('.cart-count');
+
+        addToCartButton.addEventListener('click', () => {
+            let count = parseInt(cartCount.textContent);
+            count += 1;
+            cartCount.textContent = count;
+            cartCount.classList.add('bounce');
+            setTimeout(() => {
+                cartCount.classList.remove('bounce');
+            }, 500);
+        });
+    </script>
+</body>
+</html>
